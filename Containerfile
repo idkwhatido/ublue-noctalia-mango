@@ -30,6 +30,8 @@ FROM ghcr.io/ublue-os/aurora:stable
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
 RUN mkdir -p /usr/share/sysc-greet/{ascii_configs,fonts,wallpapers}
+# test
+RUN cp /ctx/build.sh /etc/
 RUN cp /ctx/greeter-ascii/ascii_configs/* /usr/share/sysc-greet/ascii_configs/
 RUN cp /ctx/greeter-ascii/fonts/* /usr/share/sysc-greet/fonts/
 RUN cp /ctx/greeter-ascii/wallpapers/* /usr/share/sysc-greet/wallpapers/
