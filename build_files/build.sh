@@ -25,7 +25,7 @@ mkdir -p /etc/skel/.config
 dnf5 install -y rofi ghostty xdg-desktop-portal-wlr swaybg cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer  sway-audio-idle-inhibit swayidle brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects wlogout sox
 git clone https://github.com/DreamMaoMao/mango-config.git /etc/skel/.config/mango
 dnf5 install -y noctalia-shell
-sed -i 's/waybar -c.*/qs -c noctalia-shell >\/dev\/null 2>\&1 \&/g'
+sed -i 's/waybar -c.*/qs -c noctalia-shell >\/dev\/null 2>\&1 \&/g' /etc/skel/.config/mango/autostart.sh
 
 # install login management
 dnf5 install -y greetd
