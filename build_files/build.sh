@@ -20,7 +20,6 @@ dnf5 install -y distrobox
 
 # install mangowm, dotfiles and noctalia shell
 dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-dnf5 install -y terra-gpg-keys
 dnf5 install -y mangowm
 mkdir -p /etc/skel/.config
 dnf5 install -y rofi ghostty xdg-desktop-portal-wlr swaybg cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer  sway-audio-idle-inhibit swayidle brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects wlogout sox
