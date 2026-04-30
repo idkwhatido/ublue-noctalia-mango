@@ -29,14 +29,6 @@ FROM ghcr.io/ublue-os/aurora:stable
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
-RUN mkdir -p /usr/share/sysc-greet/{ascii_configs,fonts,wallpapers}
-# test
-RUN cp /ctx/build.sh /etc/
-RUN cp /ctx/greeter-ascii/ascii_configs/* /usr/share/sysc-greet/ascii_configs/
-RUN cp /ctx/greeter-ascii/fonts/* /usr/share/sysc-greet/fonts/
-RUN cp /ctx/greeter-ascii/wallpapers/* /usr/share/sysc-greet/wallpapers/
-RUN cp /ctx/greeter-ascii/kitty-greeter.conf /etc/greetd/kitty.conf
-
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \

@@ -37,6 +37,13 @@ wget https://github.com/Nomadcxx/sysc-greet/releases/download/v1.1.6/sysc-greet
 mv ./sysc-greet /var/lib/greetd/
 chmod +x /var/lib/greetd/sysc-greet
 chown greetd:greetd /var/lib/greetd/sysc-greet
+
+mkdir -p /usr/share/sysc-greet/{ascii_configs,fonts,wallpapers}
+cp /ctx/greeter-ascii/ascii_configs/* /usr/share/sysc-greet/ascii_configs/
+cp /ctx/greeter-ascii/fonts/* /usr/share/sysc-greet/fonts/
+cp /ctx/greeter-ascii/wallpapers/* /usr/share/sysc-greet/wallpapers/
+cp /ctx/greeter-ascii/kitty-greeter.conf /etc/greetd/kitty.conf
+
 systemctl enable greetd
 
 # disable terra gpg check to avoid build error
