@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # install some base packages
-dnf5 install -y ghostty usbguard usbguard-selinux usbguard-notifier git wget curl
+dnf5 install -y usbguard usbguard-selinux usbguard-notifier git wget curl
 
 # install podman
 dnf5 install -y podman
