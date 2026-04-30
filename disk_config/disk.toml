@@ -2,3 +2,10 @@
 mountpoint = "/"
 minsize = "20 GiB"
 format = "btrfs"
+
+[[customizations.yum.repo]]
+id = "terra"
+# Wir definieren das Repo neu, aber setzen gpgcheck auf false
+baseurl = "https://repos.fyralabs.com/terra$releasever/$basearch/"
+enabled = true
+gpgcheck = false
