@@ -33,6 +33,9 @@ dnf5 install -y greetd
 #dnf5 install -y ./sysc-greet-1.1.6-1.x86_64.rpm
 systemctl enable greetd
 
+# disable terra gpg check to avoid build error
+sed -i 's/gpgcheck=1/gpgcheck=0/g' /etc/yum.repos.d/terra.repo
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
