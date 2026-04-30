@@ -9,6 +9,10 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
+# remove KDE and SDDM
+dnf5 group remove -y kde-desktop
+dnf5 remove -y sddm sddm-*
+
 # install some base packages
 dnf5 install -y usbguard usbguard-selinux usbguard-notifier git wget curl
 
@@ -29,12 +33,18 @@ sed -i 's/waybar -c.*/qs -c noctalia-shell >\/dev\/null 2>\&1 \&/g' /etc/skel/.c
 
 # install login management
 dnf5 install -y greetd
-#wget https://github.com/Nomadcxx/sysc-greet/releases/download/v1.1.6/sysc-greet-1.1.6-1.x86_64.rpm
-#dnf5 install -y ./sysc-greet-1.1.6-1.x86_64.rpm
+wget https://github.com/Nomadcxx/sysc-greet/releases/download/v1.1.6/sysc-greet-1.1.6-1.x86_64.rpm
+dnf5 install -y ./sysc-greet-1.1.6-1.x86_64.rpm
 systemctl enable greetd
 
 # disable terra gpg check to avoid build error
 sed -i 's/gpgcheck=1/gpgcheck=0/g' /etc/yum.repos.d/terra.repo
+
+# install another terminal app during testing
+dnf5 install foot
+
+# cleanup
+dnf5 autoremove -y
 
 # Use a COPR Example:
 #
