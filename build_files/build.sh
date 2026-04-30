@@ -33,9 +33,10 @@ sed -i 's/waybar -c.*/qs -c noctalia-shell >\/dev\/null 2>\&1 \&/g' /etc/skel/.c
 
 # install login management
 dnf5 install -y greetd
-mkdir /usr/local
-wget https://github.com/Nomadcxx/sysc-greet/releases/download/v1.1.6/sysc-greet-1.1.6-1.x86_64.rpm
-dnf5 install -y ./sysc-greet-1.1.6-1.x86_64.rpm
+wget https://github.com/Nomadcxx/sysc-greet/releases/download/v1.1.6/sysc-greet
+mv ./sysc-greet /var/lib/greetd/
+chmod +x /var/lib/greetd/sysc-greet
+chown greetd:greetd /var/lib/greetd/sysc-greet
 systemctl enable greetd
 
 # disable terra gpg check to avoid build error
