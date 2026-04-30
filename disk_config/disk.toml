@@ -2,3 +2,6 @@
 mountpoint = "/"
 minsize = "20 GiB"
 format = "btrfs"
+
+[customizations.installer.disks]
+rootfs = "btrfs"
