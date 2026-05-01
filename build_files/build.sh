@@ -29,6 +29,7 @@ dnf5 install -y mangowm
 mkdir -p /etc/skel/.config
 dnf5 install -y ghostty xdg-desktop-portal-wlr swaybg cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer  sway-audio-idle-inhibit swayidle brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects wlogout sox fd-find firefox
 git clone https://github.com/DreamMaoMao/mango-config.git /etc/skel/.config/mango
+sed -i 's/env=GTK_IM.*/#env=GTK_IM_MODULE,fcitx/g' /etc/skel/.config/mango/env.conf
 dnf5 install -y noctalia-shell
 sed -i 's/waybar -c.*/qs -c noctalia-shell >\/dev\/null 2>\&1 \&/g' /etc/skel/.config/mango/autostart.sh
 sed -i 's/bind=Alt,Return.*/bind=Alt,Return,spawn,ghostty/g' /etc/skel/.config/mango/bind.conf

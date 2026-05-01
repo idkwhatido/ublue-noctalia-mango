@@ -1,5 +1,12 @@
 [customizations.installer.kickstart]
 contents = """
+%pre
+systemctl start wpa_supplicant
+%end
+
+network --bootproto=dhcp --device=link --activate
+bootloader --append="nm.required_modules=wifi"
+
 
 %post
 bootc switch --mutate-in-place --transport registry ghcr.io/idkwhatido/ublue-noctalia-mango:latest
@@ -21,3 +28,7 @@ enable = [
 disable = [
   "org.fedoraproject.Anaconda.Modules.Subscription",
 ]
+
+[customizations.iso]
+volume_id = "Aurora-Mango"
+publisher = "idkwhatido"
