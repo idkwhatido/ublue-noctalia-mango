@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # remove KDE and SDDM
-dnf5 remove -y dolphin ark konsole filelight kde-connect kde-connect-* kdebugsettings spectacle kwrite Sunshine ptyxis kinfocenter
+dnf5 remove -y dolphin ark konsole filelight kde-connect kde-connect-* kdebugsettings spectacle kwrite Sunshine ptyxis kinfocenter rofi rofi-*
 dnf5 remove -y kde-* plasma-*
 dnf5 remove -y sddm sddm-*
 
@@ -32,9 +32,11 @@ git clone https://github.com/DreamMaoMao/mango-config.git /etc/skel/.config/mang
 dnf5 install -y noctalia-shell
 sed -i 's/waybar -c.*/qs -c noctalia-shell >\/dev\/null 2>\&1 \&/g' /etc/skel/.config/mango/autostart.sh
 sed -i 's/bind=Alt,Return.*/bind=Alt,Return,spawn,ghostty/g' /etc/skel/.config/mango/bind.conf
-echo "# custom added bindings" >> /etc/skel/.config/mango.bind.conf
+sed -i 's/bind=Alt,space.*/bind=Alt,space,spawn,qs -c noctalia-shell ipc call launcher toggle/g' /etc/skel/.config/mango/bind.conf
+echo "# custom added bindings" >> /etc/skel/.config/mango/bind.conf
 echo "bind=SUPER,b,spawn,firefox" >> /etc/skel/.config/mango/bind.conf
 echo "bind=SUPER,f,spawn,ghostty -e yazi" >> /etc/skel/.config/mango/bind.conf
+echo "bind=SUPER+SHIFT,p,qs -c noctalia-shell ipc call sessionMenu toggle"
 
 
 
@@ -53,6 +55,7 @@ cp /ctx/greeter-ascii/kitty-greeter.conf /etc/greetd/kitty.conf
 
 rm -f /usr/share/applications/kitty.desktop
 rm -f /usr/share/applications/kitty-open.desktop
+rm -f /usr/share/applications/yazi.desktop
 
 mkdir /var/lib/greetd/mango-greet
 cp /ctx/greeter-ascii/config.conf /var/lib/greetd/mango-greet/config.conf
