@@ -50,7 +50,7 @@ systemctl enable greetd
 sed -i 's/gpgcheck=1/gpgcheck=0/g' /etc/yum.repos.d/terra.repo
 
 # install another terminal app during testing
-dnf5 install foot
+dnf5 install -y foot
 
 # cleanup
 dnf5 autoremove -y
