@@ -29,19 +29,14 @@ FROM ghcr.io/ublue-os/aurora:stable
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 RUN dnf install -y \
-    linux-firmware-mediatek \
-    iwl7260-firmware \
-    iwlwifi-dvm-firmware \
-    iwlwifi-mvm-firmware \
     linux-firmware \
-    brcmfmac-firmware \
     NetworkManager-wifi \
     wpa_supplicant && \
     dnf clean all
 RUN mkdir -p /usr/lib/dracut/dracut.conf.d && ( \
     echo 'add_drivers+=" mt7921e iwlwifi brcmfmac rtw88_pci rtw89_pci "' ; \
     echo 'install_items+=" /usr/lib/firmware/mediatek/* /usr/lib/firmware/iwlwifi-* /usr/lib/firmware/brcm/* /usr/lib/firmware/rtw88/* /usr/lib/firmware/rtw89/* "' \
-    ) > /usr/lib/dracut/dracut.conf.d/99-universal-wifi.conf
+    ) > /usr/lib/dracut/dracut.conf.d/99-wifi.conf
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
