@@ -36,7 +36,7 @@ sed -i 's/bind=Alt,space.*/bind=Alt,space,spawn,qs -c noctalia-shell ipc call la
 echo "# custom added bindings" >> /etc/skel/.config/mango/bind.conf
 echo "bind=SUPER,b,spawn,firefox" >> /etc/skel/.config/mango/bind.conf
 echo "bind=SUPER,f,spawn,ghostty -e yazi" >> /etc/skel/.config/mango/bind.conf
-echo "bind=SUPER+SHIFT,p,qs -c noctalia-shell ipc call sessionMenu toggle" >> /etc/skel/.config/mango/bind.conf
+echo "bind=SUPER+SHIFT,s,spawn,qs -c noctalia-shell ipc call sessionMenu toggle" >> /etc/skel/.config/mango/bind.conf
 
 
 
