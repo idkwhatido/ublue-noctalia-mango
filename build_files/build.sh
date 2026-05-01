@@ -27,7 +27,7 @@ dnf5 install -y distrobox
 dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 dnf5 install -y mangowm
 mkdir -p /etc/skel/.config
-dnf5 install -y rofi ghostty xdg-desktop-portal-wlr swaybg cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer  sway-audio-idle-inhibit swayidle brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects wlogout sox fd-find firefox
+dnf5 install -y ghostty xdg-desktop-portal-wlr swaybg cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer  sway-audio-idle-inhibit swayidle brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects wlogout sox fd-find firefox
 git clone https://github.com/DreamMaoMao/mango-config.git /etc/skel/.config/mango
 dnf5 install -y noctalia-shell
 sed -i 's/waybar -c.*/qs -c noctalia-shell >\/dev\/null 2>\&1 \&/g' /etc/skel/.config/mango/autostart.sh
@@ -36,7 +36,7 @@ sed -i 's/bind=Alt,space.*/bind=Alt,space,spawn,qs -c noctalia-shell ipc call la
 echo "# custom added bindings" >> /etc/skel/.config/mango/bind.conf
 echo "bind=SUPER,b,spawn,firefox" >> /etc/skel/.config/mango/bind.conf
 echo "bind=SUPER,f,spawn,ghostty -e yazi" >> /etc/skel/.config/mango/bind.conf
-echo "bind=SUPER+SHIFT,p,qs -c noctalia-shell ipc call sessionMenu toggle"
+echo "bind=SUPER+SHIFT,p,qs -c noctalia-shell ipc call sessionMenu toggle" >> /etc/skel.config/mango/bind.conf
 
 
 
@@ -55,7 +55,6 @@ cp /ctx/greeter-ascii/kitty-greeter.conf /etc/greetd/kitty.conf
 
 rm -f /usr/share/applications/kitty.desktop
 rm -f /usr/share/applications/kitty-open.desktop
-rm -f /usr/share/applications/yazi.desktop
 
 mkdir /var/lib/greetd/mango-greet
 cp /ctx/greeter-ascii/config.conf /var/lib/greetd/mango-greet/config.conf
@@ -73,6 +72,7 @@ sed -i 's/gpgcheck=1/gpgcheck=0/g' /etc/yum.repos.d/terra.repo
 
 dnf5 -y copr enable lihaohong/yazi
 dnf5 install -y yazi
+rm -f /usr/share/applications/yazi.desktop
 
 # remove some default aurora stuff
 rm -f /usr/share/applications/dev.getaurora.*
