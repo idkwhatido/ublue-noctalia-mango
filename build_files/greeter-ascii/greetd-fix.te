@@ -1,0 +1,13 @@
+
+module greetd-fix 1.0;
+
+require {
+	type xdm_t;
+	type ptmx_t;
+	class process getpgid;
+	class chr_file { ioctl open read write };
+}
+
+#============= xdm_t ==============
+allow xdm_t ptmx_t:chr_file { ioctl open read write };
+allow xdm_t self:process getpgid;

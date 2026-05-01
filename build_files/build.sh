@@ -10,11 +10,12 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # remove KDE and SDDM
-dnf5 group remove -y kde-desktop
+dnf5 remove -y dolphin ark konsole filelight kde-connect kde-connect-* kdebugsettings spectacle kwrite Sunshine ptyxis kinfocenter
+dnf5 remove -y kde-* plasma-*
 dnf5 remove -y sddm sddm-*
 
 # install some base packages
-dnf5 install -y usbguard usbguard-selinux usbguard-notifier git wget curl
+dnf5 install -y usbguard usbguard-selinux usbguard-notifier git wget curl kitty
 
 # install podman
 dnf5 install -y podman
@@ -44,13 +45,22 @@ cp /ctx/greeter-ascii/fonts/* /usr/share/sysc-greet/fonts/
 cp /ctx/greeter-ascii/wallpapers/* /usr/share/sysc-greet/wallpapers/
 cp /ctx/greeter-ascii/kitty-greeter.conf /etc/greetd/kitty.conf
 
+rm -f /usr/share/applications/kitty.desktop
+rm -f /usr/share/applications/kitty-open.desktop
+
+mkdir /var/lib/greetd/mango-greet
+cp /ctx/greeter-ascii/config.conf /var/lib/greetd/mango-greet/config.conf
+cp /ctx/greeter-ascii/env.conf /var/lib/greetd/mango-greet/env.conf
+/usr/bin/cp /ctx/greeter-ascii/config.toml /etc/greetd/config.toml
+
+mkdir /tmp/greetd-fix
+cp /ctx/greeter-ascii/greetd-fix.* /tmp/greetd-fix/
+semodule -i /tmp/greetd-fix/greetd-fix.pp
+
 systemctl enable greetd
 
 # disable terra gpg check to avoid build error
 sed -i 's/gpgcheck=1/gpgcheck=0/g' /etc/yum.repos.d/terra.repo
-
-# install another terminal app during testing
-dnf5 install -y foot
 
 # cleanup
 dnf5 autoremove -y
