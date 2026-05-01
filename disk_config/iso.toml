@@ -1,5 +1,7 @@
 [customizations.installer.kickstart]
 contents = """
+keybaord --vckeymap=us --xlayouts=us,de
+
 %post
 bootc switch --mutate-in-place --transport registry ghcr.io/idkwhatido/ublue-noctalia-mango:latest
 %end
