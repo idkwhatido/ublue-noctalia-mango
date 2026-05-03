@@ -100,7 +100,7 @@ if [[ "${IMAGE_TAG}" == "beta" ]]; then
 fi
 
 # add intaller to kickoff
-sed -i '2s/$/;liveinst.desktop/' /usr/share/kde-settings/kde-profile/default/xdg/kicker-extra-favoritesrc
+#sed -i '2s/$/;liveinst.desktop/' /usr/share/kde-settings/kde-profile/default/xdg/kicker-extra-favoritesrc
 
 # Configure
 . /etc/os-release
