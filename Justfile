@@ -88,7 +88,7 @@ image_name image="ublue-noctalia-mango" tag="latest" flavor="latest":
     #!/usr/bin/bash
     set -eou pipefail
     {{ just }} validate {{ image }} {{ tag }} {{ flavor }}
-    if [[ "{{ flavor }}" =~ main ]]; then
+    if [[ "{{ flavor }}" =~ latest ]]; then
         image_name={{ image }}
     else
         image_name="{{ image }}-{{ flavor }}"
