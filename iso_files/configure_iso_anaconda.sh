@@ -16,9 +16,6 @@ LIVE_PASS='$6$rwZThyiaJ0er7xBx$QkkHr4K91FqbfrhwJp1xgvbzYNqCDt/O4W1fpVEcg6yLEKga2
 useradd -m -s /bin/bash -G wheel -p $LIVE_PASS live
 chown -R live:live /var/home/live
 
-# adapt polkit to allow liveinst without admin password
-sed -i 's/auth_admin/yes/g' /usr/share/polkit-1/actions/org.fedoraproject.pkexec.liveinst.policy
-
 # Configure Live Environment
 glib-compile-schemas /usr/share/glib-2.0/schemas
 
@@ -115,10 +112,14 @@ fi
 echo "Aurora-Mango release $VERSION_ID ($VERSION_CODENAME)" >/etc/system-release
 
 sed -i 's/ANACONDA_PRODUCTVERSION=.*/ANACONDA_PRODUCTVERSION=""/' /usr/{,s}bin/liveinst || true
+#sed -i 's/NoDisplay=true/NoDisplay=false/g' /usr/share/applications/liveinst.desktop
+#sed -i 's/Exec=/NoDisplay=false/g' /usr/share/applications/liveinst.desktop
 
 # Add StartupWMClass so the running window inherits the icon
 desktop-file-edit \
     --set-key=Icon --set-value=/usr/share/icons/hicolor/scalable/apps/dev.getaurora.installer.svg \
+    --set-key=Exec --set-value=/usr/sbin/liveinst \
+    --set-key=NoDisplay --set-value=false \
     /usr/share/applications/liveinst.desktop
 
 git clone https://github.com/get-aurora-dev/branding /tmp/branding
