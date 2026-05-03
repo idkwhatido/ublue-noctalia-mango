@@ -15,7 +15,7 @@ on:
       image_version:
         description: 'Image version/tag to build (e.g. stable, beta)'
         type: string
-        default: stable
+        default: latest
       hook_script:
         description: 'Path to the ISO post-rootfs hook script'
         type: string

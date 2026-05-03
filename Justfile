@@ -3,7 +3,7 @@ images := '(
     [ublue-noctalia-mango]=ublue-noctalia-mango
 )'
 flavors := '(
-    [main]=main
+    [latest]=latest
 )'
 tags := '(
     [latest]=latest
