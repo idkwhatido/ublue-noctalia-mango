@@ -84,7 +84,7 @@ validate $image $tag $flavor:
 
 # Image Name
 [group('Utility')]
-image_name image="aurora" tag="stable" flavor="main":
+image_name image="ublue-noctalia-mango" tag="latest" flavor="latest":
     #!/usr/bin/bash
     set -eou pipefail
     {{ just }} validate {{ image }} {{ tag }} {{ flavor }}
