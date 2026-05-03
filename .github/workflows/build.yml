@@ -11,6 +11,8 @@ on:
       - main
     paths-ignore:
       - '**/README.md'
+      - '**/Justfile'
+      - 'iso_files/*'
       - '.github/workflows/*'
       - 'disk_config/iso.toml'
   workflow_dispatch:
