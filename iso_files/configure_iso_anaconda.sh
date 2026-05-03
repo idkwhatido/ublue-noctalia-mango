@@ -120,7 +120,7 @@ rm -rf /tmp/branding
 
 # Users can mess with flatpaks on the live environment which will get
 # carried over to the installed system
-cp -a /var/lib/flatpak /var/lib/flatpak_original
+#cp -a /var/lib/flatpak /var/lib/flatpak_original
 
 tee -a /etc/xdg/kwalletrc <<EOF
 [Wallet]
