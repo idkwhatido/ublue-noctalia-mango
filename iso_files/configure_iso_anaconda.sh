@@ -14,6 +14,10 @@ sbkey='https://github.com/ublue-os/akmods/raw/main/certs/public_key.der'
 # create live user
 LIVE_PASS='$6$rwZThyiaJ0er7xBx$QkkHr4K91FqbfrhwJp1xgvbzYNqCDt/O4W1fpVEcg6yLEKga2VmPRluMz.Vyx.RFZDoqwDq3c3tMPnG4Samrr.'
 useradd -m -s /bin/bash -G wheel -p $LIVE_PASS live
+chown -R live:live /var/home/live
+
+# adapt polkit to allow liveinst without admin password
+sed -i 's/auth_admin/yes/g' /usr/share/polkit-1/actions/org.fedoraproject.pkexec.liveinst.policy
 
 # Configure Live Environment
 glib-compile-schemas /usr/share/glib-2.0/schemas
@@ -115,7 +119,6 @@ sed -i 's/ANACONDA_PRODUCTVERSION=.*/ANACONDA_PRODUCTVERSION=""/' /usr/{,s}bin/l
 # Add StartupWMClass so the running window inherits the icon
 desktop-file-edit \
     --set-key=Icon --set-value=/usr/share/icons/hicolor/scalable/apps/dev.getaurora.installer.svg \
-    --set-key=StartupWMClass --set-value=slitherer \
     /usr/share/applications/liveinst.desktop
 
 git clone https://github.com/get-aurora-dev/branding /tmp/branding
