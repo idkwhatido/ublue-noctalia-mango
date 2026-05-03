@@ -11,6 +11,10 @@ IMAGE_REF="${IMAGE_REF##*://}"
 
 sbkey='https://github.com/ublue-os/akmods/raw/main/certs/public_key.der'
 
+# create live user
+LIVE_PASS='$6$rwZThyiaJ0er7xBx$QkkHr4K91FqbfrhwJp1xgvbzYNqCDt/O4W1fpVEcg6yLEKga2VmPRluMz.Vyx.RFZDoqwDq3c3tMPnG4Samrr.'
+useradd -m -s /bin/bash -G wheel -p $LIVE_PASS live
+
 # Configure Live Environment
 glib-compile-schemas /usr/share/glib-2.0/schemas
 
