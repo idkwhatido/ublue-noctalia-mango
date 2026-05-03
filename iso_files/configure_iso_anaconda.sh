@@ -26,7 +26,6 @@ systemctl disable ublue-system-setup.service
 systemctl disable flatpak-preinstall.service
 systemctl --global disable podman-auto-update.timer
 systemctl --global disable ublue-user-setup.service
-rm /usr/share/applications/dev.getaurora.system-update.desktop
 
 systemctl --global disable bazaar.service
 
@@ -163,7 +162,7 @@ sync
 EOF
 
 # cleanup our leftovers
-rm -rf /flatpak-list
+rm -rf /flatpak-list || true
 
 # Fetch the Secureboot Public Key
 curl --retry 15 -Lo /etc/sb_pubkey.der "$sbkey"
