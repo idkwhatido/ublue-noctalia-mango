@@ -21,7 +21,7 @@ tee /etc/systemd/system/fix-home-perm.service<<'EOF'
 Description=Fix the permission of the live user home directory
 
 [Service]
-ExecStart=/usr/bin/bash -c chown -R live:live /var/home/live
+ExecStart=/usr/bin/bash -c "chown -R live:live /var/home/live"
 
 [Install]
 WantedBy=default.target
