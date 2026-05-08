@@ -27,8 +27,7 @@ ExecStart=/usr/bin/bash -c chown -R live:live /var/home/live
 WantedBy=default.target
 EOF
 
-systemctl daemon-reload
-systemctl enable fix-home-perm.service
+systemctl enable /etc/systemd/system/fix-home-perm.service
 
 # Configure Live Environment
 glib-compile-schemas /usr/share/glib-2.0/schemas
