@@ -23,7 +23,7 @@ The Login for the Live-Environment is "live" (both user and password)
 Open the file `~/.config/mango/config.conf` and search for `xkb`. With default settings there is a line that specify the keyboard layouts `en,ru`, simply change that to your desired layout and press `SUPER+R` to reload the configuration.
 
 ## Where can i download the iso?
-You can download the iso from [here](https://ublue-images.s3.de.io.cloud.ovh.net/ublue-noctalia-mango-latest-webui-x86_64.iso)
+You can download the iso from [here](https://ublue-images.s3.de.io.cloud.ovh.net/ublue-noctalia-mango-latest-webui-x86_64.iso)<br>
 The Checksum-File can be downloaded [here](https://ublue-images.s3.de.io.cloud.ovh.net/ublue-noctalia-mango-latest-webui-x86_64.iso-CHECKSUM)
 
 ## Known Bugs
