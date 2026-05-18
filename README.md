@@ -28,7 +28,6 @@ The Checksum-File can be downloaded [here](https://ublue-images.s3.de.io.cloud.o
 
 ## Known Bugs
 - At first login after install noctalia-shell won't load -> i have a idea why, but have to test the possible fix
-- gtk apps use light theme -> i know why and how to fix it, but need to implement that :)
 
 ## Roadmap
 - Fix the bugs
