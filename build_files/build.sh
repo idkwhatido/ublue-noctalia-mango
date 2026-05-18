@@ -92,3 +92,10 @@ dnf5 autoremove -y
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+
+# set gtk dark theme as default
+tee /usr/share/glib-2.0/schemas/99-default-dark.gschema.override <<EOF
+[org.gnome.desktop.interface]
+color-scheme='prefer-dark'
+EOF
+
