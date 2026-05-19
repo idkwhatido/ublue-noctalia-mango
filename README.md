@@ -12,7 +12,7 @@ To begin i removed KDE and SDDM and added the following:
 - greetd (Login Manager)
 - sysc-greet (Frontend for the Login Manager)
 - Yazi (Terminal based File-Manager)
-- Firefox (Default Web-Browser)
+- usbguard (Block not whitelisted usb devices) -> disabled by default
 - Noctalia-Shell
 
 ## Can i try it out?
@@ -27,10 +27,9 @@ You can download the iso from [here](https://ublue-images.s3.de.io.cloud.ovh.net
 The Checksum-File can be downloaded [here](https://ublue-images.s3.de.io.cloud.ovh.net/ublue-noctalia-mango-latest-webui-x86_64.iso-CHECKSUM)
 
 ## Known Bugs
-- At first login after install noctalia-shell won't load -> i have a idea why, but have to test the possible fix
+- At first login after install noctalia-shell won't load (sometimes)
 
 ## Roadmap
 - Fix the bugs
 - Modify the Justfile (remove some options and add some own)
-- Make a decision if i want to remove firefox as system package
 - Be happy
