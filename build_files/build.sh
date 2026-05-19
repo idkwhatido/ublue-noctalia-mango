@@ -27,7 +27,7 @@ dnf5 install -y distrobox
 dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 dnf5 install -y mangowm
 mkdir -p /etc/skel/.config
-dnf5 install -y ghostty xdg-desktop-portal-wlr swaybg cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer  sway-audio-idle-inhibit swayidle brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects wlogout sox fd-find firefox
+dnf5 install -y ghostty xdg-desktop-portal-wlr swaybg cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer  sway-audio-idle-inhibit swayidle brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects wlogout sox fd-find
 git clone https://github.com/DreamMaoMao/mango-config.git /etc/skel/.config/mango
 sed -i 's/env=GTK_IM.*/#env=GTK_IM_MODULE,fcitx/g' /etc/skel/.config/mango/env.conf
 dnf5 install -y noctalia-shell

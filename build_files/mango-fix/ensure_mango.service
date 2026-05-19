@@ -1,0 +1,10 @@
+[Unit]
+Description=Check if every user has a mango config directory, if not create it
+
+[Service]
+Restart=no
+Type=oneshot
+ExecStart=/usr/share/mango-helper/ensure_mango.sh
+
+[Install]
+WantedBy=multi-user.target
