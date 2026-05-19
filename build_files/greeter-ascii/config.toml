@@ -8,7 +8,7 @@ vt = 1
 
 # `agreety` is the bundled agetty/login-lookalike. You can replace `/bin/sh`
 # with whatever you want started, such as `sway`.
-command = "mango -c /var/lib/greetd/mango-greet/config.conf"
+command = "mango -c /usr/share/sysc-greet/mango-greet/config.conf"
 #command = "mango -c /var/lib/greetd/mango-greet/test-config.conf"
 
 # The user to run the command as. The privileges this user must have depends

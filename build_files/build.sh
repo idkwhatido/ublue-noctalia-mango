@@ -43,9 +43,9 @@ echo "bind=SUPER,f,spawn,ghostty -e yazi" >> /etc/skel/.config/mango/bind.conf
 # install login management
 dnf5 install -y greetd
 wget https://github.com/Nomadcxx/sysc-greet/releases/download/v1.1.6/sysc-greet
-mv ./sysc-greet /var/lib/greetd/
-chmod +x /var/lib/greetd/sysc-greet
-chown greetd:greetd /var/lib/greetd/sysc-greet
+mv ./sysc-greet /usr/share/sysc-greet/
+chmod +x /usr/share/sysc-greet/sysc-greet
+chown greetd:greetd /usr/share/sysc-greet/sysc-greet
 
 mkdir -p /usr/share/sysc-greet/{ascii_configs,fonts,wallpapers}
 cp /ctx/greeter-ascii/ascii_configs/* /usr/share/sysc-greet/ascii_configs/
@@ -56,9 +56,9 @@ cp /ctx/greeter-ascii/kitty-greeter.conf /etc/greetd/kitty.conf
 rm -f /usr/share/applications/kitty.desktop
 rm -f /usr/share/applications/kitty-open.desktop
 
-mkdir /var/lib/greetd/mango-greet
-cp /ctx/greeter-ascii/config.conf /var/lib/greetd/mango-greet/config.conf
-cp /ctx/greeter-ascii/env.conf /var/lib/greetd/mango-greet/env.conf
+mkdir /usr/share/sysc-greet/mango-greet
+cp /ctx/greeter-ascii/config.conf /usr/share/sysc-greet/mango-greet/config.conf
+cp /ctx/greeter-ascii/env.conf /usr/share/sysc-greet/mango-greet/env.conf
 /usr/bin/cp /ctx/greeter-ascii/config.toml /etc/greetd/config.toml
 
 mkdir /tmp/greetd-fix
