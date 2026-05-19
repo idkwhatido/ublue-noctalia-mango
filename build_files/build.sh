@@ -43,6 +43,7 @@ echo "bind=SUPER,f,spawn,ghostty -e yazi" >> /etc/skel/.config/mango/bind.conf
 # install login management
 dnf5 install -y greetd
 wget https://github.com/Nomadcxx/sysc-greet/releases/download/v1.1.6/sysc-greet
+mkdir /usr/share/sysc-greet
 mv ./sysc-greet /usr/share/sysc-greet/
 chmod +x /usr/share/sysc-greet/sysc-greet
 chown greetd:greetd /usr/share/sysc-greet/sysc-greet
