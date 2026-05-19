@@ -98,6 +98,6 @@ systemctl enable podman.socket
 tee /usr/share/glib-2.0/schemas/zzzzzzz-default-dark.gschema.override <<EOF
 [org.gnome.desktop.interface]
 color-scheme='prefer-dark'
-gtk-theme='Breeze-Dark'
+gtk-theme='Breeze'
 EOF
 glib-compile-schemas /usr/share/glib-2.0/schemas/
