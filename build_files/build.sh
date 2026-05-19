@@ -109,3 +109,8 @@ chmod +x /usr/share/mango-helper/ensure_mango.sh
 cp /ctx/mango-fix/ensure_mango.service /usr/lib/systemd/system/ensure_mango.service
 
 systemctl enable /usr/lib/systemd/system/ensure_mango.service
+
+# ujust mods
+rm -f /usr/share/ublue-os/just/changelog.just
+rm -f /usr/share/ublue-os/just/system.just
+mv /ctx/just_files/*.just /usr/share/ublue-os/just/
