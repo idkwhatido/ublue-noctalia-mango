@@ -101,3 +101,11 @@ color-scheme='prefer-dark'
 gtk-theme='Breeze'
 EOF
 glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+# install mango-helper to prevent shell issues
+mkdir /usr/share/mango-helper
+cp /ctx/mango-fix/ensure_mango.sh /usr/share/mango-helper/ensure_mango.sh
+chmod +x /usr/share/mango-helper/ensure_mango.sh
+cp /ctx/mango-fix/ensure_mango.service /usr/lib/systemd/system/ensure_mango.service
+
+systemctl enable /usr/lib/systemd/system/ensure_mango.service
