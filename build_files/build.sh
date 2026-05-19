@@ -113,4 +113,9 @@ systemctl enable /usr/lib/systemd/system/ensure_mango.service
 # ujust mods
 rm -f /usr/share/ublue-os/just/changelog.just
 rm -f /usr/share/ublue-os/just/system.just
+sed -i 's/import \"\/usr\/share\/ublue-os\/just\/changelog.just\"//g' /usr/share/ublue-os/just/00-entry.just
+sed -i 's/import \"\/usr\/share\/ublue-os\/just\/system.just\"//g' /usr/share/ublue-os/just/00-entry.just
+echo 'import "/usr/share/ublue-os/just/ui.just"' >> /usr/share/ublue-os/just/00-entry.just
+echo 'import "/usr/share/ublue-os/just/usbguard.just"' >> /usr/share/ublue-os/just/00-entry.just
 cp /ctx/just_files/*.just /usr/share/ublue-os/just/
+
