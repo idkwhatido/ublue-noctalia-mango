@@ -10,5 +10,6 @@ for user in ${users[@]}; do
     fi
     if [ ! -d "/home/$user/$mango_dst" ]; then
         cp -r /etc/skel/.config/mango /home/$user/$mango_dst
+        chown -R $user:$user /home/$user/$mango_dst
     fi
 done
