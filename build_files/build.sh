@@ -119,3 +119,12 @@ echo 'import "/usr/share/ublue-os/just/ui.just"' >> /usr/share/ublue-os/just/00-
 echo 'import "/usr/share/ublue-os/just/usbguard.just"' >> /usr/share/ublue-os/just/00-entry.just
 cp /ctx/just_files/*.just /usr/share/ublue-os/just/
 
+# modify image-info.json
+sed -i 's/"image-name".*/"image-name: "aurora-manoc",/g' /usr/share/ublue-os/image-info.json
+sed -i 's/"image-vendor".*/"image-vendor: "idkwhatido",/g' /usr/share/ublue-os/image-info.json
+sed -i 's/"image-ref".*/"image-ref: "ostree-image-signed:\/\/ghcr.io\/idkwhatido\/ublue-noctalia-mango",/g' /usr/share/ublue-os/image-info.json
+
+# fix xdg-desktop-portal
+sed -i 's/RefuseManualStart=yes/RefuseManualStart=no/g' /usr/lib/systemd/user/graphical-session.target
+sed -i 's/StopWhenUnneeded=yes//g' /usr/lib/systemd/user/graphical-session.target
+echo "systemctl --user start graphical-session.target" >> /etc/skel/.config/mango/autostart.sh
