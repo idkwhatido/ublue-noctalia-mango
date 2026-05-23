@@ -36,7 +36,7 @@ sed -i 's/bind=Alt,Return.*/bind=Alt,Return,spawn,ghostty/g' /etc/skel/.config/m
 sed -i 's/bind=Alt,space.*/bind=Alt,space,spawn,qs -c noctalia-shell ipc call launcher toggle/g' /etc/skel/.config/mango/bind.conf
 sed -i 's/bind=SUPER+SHIFT,p.*/bind=SUPER+SHIFT,p,spawn,qs -c noctalia-shell ipc call sessionMenu toggle/g' /etc/skel/.config/mango/bind.conf
 echo "# custom added bindings" >> /etc/skel/.config/mango/bind.conf
-echo "bind=SUPER,b,spawn,firefox" >> /etc/skel/.config/mango/bind.conf
+echo "bind=SUPER,b,spawn,flatpak run org.mozilla.firefox" >> /etc/skel/.config/mango/bind.conf
 echo "bind=SUPER,f,spawn,ghostty -e yazi" >> /etc/skel/.config/mango/bind.conf
 
 
